@@ -31,16 +31,6 @@
         },
         {
           "kind": "SCALAR",
-          "name": "ISO8601DateTime",
-          "description": "An ISO 8601-encoded datetime",
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "SCALAR",
           "name": "Int",
           "description": "Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
           "fields": null,
@@ -261,7 +251,7 @@
               "deprecationReason": null
             },
             {
-              "name": "avatarImage",
+              "name": "avatarImg",
               "description": null,
               "args": [
 
@@ -279,7 +269,7 @@
               "deprecationReason": null
             },
             {
-              "name": "createdAt",
+              "name": "img",
               "description": null,
               "args": [
 
@@ -289,7 +279,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "ISO8601DateTime",
+                  "name": "String",
                   "ofType": null
                 }
               },
@@ -297,7 +287,7 @@
               "deprecationReason": null
             },
             {
-              "name": "id",
+              "name": "imgAlt",
               "description": null,
               "args": [
 
@@ -307,7 +297,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "ID",
+                  "name": "String",
                   "ofType": null
                 }
               },
@@ -351,7 +341,7 @@
               "deprecationReason": null
             },
             {
-              "name": "tweetAlt",
+              "name": "tweetId",
               "description": null,
               "args": [
 
@@ -361,7 +351,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ID",
                   "ofType": null
                 }
               },
@@ -369,7 +359,7 @@
               "deprecationReason": null
             },
             {
-              "name": "tweetImage",
+              "name": "tweetTime",
               "description": null,
               "args": [
 
