@@ -7,6 +7,8 @@ GraphQL on Rails
 * GraphQL
 * Docker
 
+![CI](https://github.com/ham0215/imitation-applications-backend/workflows/CI/badge.svg?branch=master)
+
 ## Ruby version
 2.7.1
 
