@@ -29,6 +29,8 @@ group :development do
 
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+
+  gem "graphiql-rails"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
