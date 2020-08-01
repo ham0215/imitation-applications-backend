@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    paths-ignore:
+      - README.md
+      - docs/**
+      - Dockerfile
+      - docker-compose.yml
+
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+    env:
+      RAILS_ENV: test
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Ruby 2.7
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7.x
+    - name: Cache gems
+      uses: actions/cache@preview
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gem-
+    - name: bundle install
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3 --path vendor/bundle
+    - name: run rspec
+      run: bundle exec rspec
+
+  rubocop:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Ruby 2.7
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7.x
+    - name: run rubocop
+      run: |
+        gem install rubocop
+        rubocop
+
+  brakeman:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Ruby 2.7
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7.x
+    - name: run brakeman
+      run: |
+        gem install brakeman
+        brakeman -6 -A -w 1
