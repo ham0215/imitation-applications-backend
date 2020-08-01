@@ -1,6 +1,6 @@
 steps:
   - name: 'gcr.io/cloud-builders/gsutil'
-    args: ['cp', 'gs://master_keys/imitation-applications/master.key', './config/']
+    args: ['cp', 'gs://master_keys/imitation-applications-backend/master.key', './config/']
   - name: 'gcr.io/cloud-builders/docker'
     args: ["build", "-t", "gcr.io/$_PROJECT_ID/imitation-applications", "-f", "DockerfilePrd", "."]
   - name: 'gcr.io/cloud-builders/docker'
