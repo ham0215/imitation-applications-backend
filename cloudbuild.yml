@@ -4,6 +4,6 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ["push", "gcr.io/$_PROJECT_ID/imitation-applications"]
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['beta', 'run', 'deploy', 'api', '--image', 'gcr.io/$_PROJECT_ID/imitation-applications', '--region', 'asia-northeast1','--platform', 'managed', '--quiet']
+    args: ['beta', 'run', 'deploy', 'imitation-applications', '--image', 'gcr.io/$_PROJECT_ID/imitation-applications', '--region', 'asia-northeast1','--platform', 'managed', '--quiet']
 images:
   - gcr.io/$_PROJECT_ID/imitation-applications
