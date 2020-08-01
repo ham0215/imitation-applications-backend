@@ -63,31 +63,15 @@ type Query {
 }
 
 type Tweet {
+  avatarAlt: String!
+  avatarImage: String!
   createdAt: ISO8601DateTime!
   id: ID!
+  name: String!
   text: String!
-  tweetImages(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-  ): TweetImageConnection!
-  user: User!
+  tweetAlt: String!
+  tweetImage: String!
+  userId: String!
 }
 
 """
@@ -123,53 +107,4 @@ type TweetEdge {
   The item at the end of the edge.
   """
   node: Tweet
-}
-
-type TweetImage {
-  alt: String!
-  id: ID!
-  url: String!
-}
-
-"""
-The connection type for TweetImage.
-"""
-type TweetImageConnection {
-  """
-  A list of edges.
-  """
-  edges: [TweetImageEdge]
-
-  """
-  A list of nodes.
-  """
-  nodes: [TweetImage]
-
-  """
-  Information to aid in pagination.
-  """
-  pageInfo: PageInfo!
-}
-
-"""
-An edge in a connection.
-"""
-type TweetImageEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-
-  """
-  The item at the end of the edge.
-  """
-  node: TweetImage
-}
-
-type User {
-  avatarAlt: String!
-  avatarImage: String!
-  id: ID!
-  key: String!
-  name: String!
 }
