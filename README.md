@@ -23,6 +23,12 @@ Create graphql schema
 bundle exec rake graphql:schema:dump
 ```
 
+## Edit Credentials
+
+```ruby
+rails credentials:edit
+```
+
 ## Frontend
 
 https://github.com/ham0215/imitation-applications
