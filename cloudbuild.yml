@@ -1,0 +1,9 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ["build", "-t", "gcr.io/default/imitation-applications", "-f", "DockerfilePrd", "."]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ["push", "gcr.io/default/imitation-applications"]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['beta', 'run', 'deploy', 'api', '--image', 'gcr.io/default/imitation-applications', '--region', 'asia-northeast1','--platform', 'managed', '--quiet']
+images:
+  - gcr.io/default/imitation-applications
